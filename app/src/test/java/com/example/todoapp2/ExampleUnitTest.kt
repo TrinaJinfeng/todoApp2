@@ -11,7 +11,7 @@ class ExampleUnitTest {
     fun testGetTodos() = runBlocking {
         val repository = TodoRepository()
 
-        val result = repository.getTodos()
+        val result = repository.getAccounts()
 
         assertNotNull(result)
         assertTrue(result.isNotEmpty())

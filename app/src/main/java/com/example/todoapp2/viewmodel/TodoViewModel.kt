@@ -19,13 +19,6 @@ class TodoViewModel : ViewModel() {
 
     val accountState = MutableLiveData<AccountState>()
 
-//    fun getTodos(callback: (List<String>) -> Unit) {
-//        viewModelScope.launch {
-//            val todos = repository.getTodos()
-//            callback(todos)
-//        }
-//    }
-
     fun getAccounts() {
 
         viewModelScope.launch {

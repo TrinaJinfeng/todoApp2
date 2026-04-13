@@ -21,11 +21,6 @@ class TodoActivity : AppCompatActivity() {
 
         val viewModel = ViewModelProvider(this).get(TodoViewModel::class.java)
 
-//        viewModel.getTodos { todos ->
-//
-//            val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, todos)
-//            listView.adapter = adapter
-//        }
         viewModel.getAccounts() // Trigger data loading
 
         //observe the state

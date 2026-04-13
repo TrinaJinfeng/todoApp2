@@ -1,13 +1,3 @@
-//package com.example.todoapp2.viewmodel
-//
-//import androidx.lifecycle.ViewModel
-//
-//class AuthViewModel : ViewModel(){
-//    fun login(email:String, password:String): Boolean {
-//        return email.isNotEmpty() && password.isNotEmpty()
-//    }
-//}
-
 package com.example.todoapp2.viewmodel
 
 import androidx.lifecycle.MutableLiveData
@@ -16,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-// 定义登录状态（比String更安全、更专业）
+// Define authentication state， more safe than using a String.
 sealed class LoginState {
     object Loading : LoginState()
     object Success : LoginState()
@@ -25,21 +15,21 @@ sealed class LoginState {
 
 class AuthViewModel : ViewModel() {
 
-    // UI观察这个状态
+    // UI observe the state.
     val loginState = MutableLiveData<LoginState>()
 
     fun login(email: String, password: String) {
 
         viewModelScope.launch {
 
-            // 1️⃣ 先通知UI进入loading状态
+            // 1. Set the UI to a loading state first
             loginState.value = LoginState.Loading
 
             try {
-                // 2️⃣ 模拟API请求
+                // 2. Simulate API request.
                 delay(1000)
 
-                // 3️⃣ 处理结果
+                // 3. Processing Result
                 if (email.isNotEmpty() && password.isNotEmpty()) {
                     loginState.value = LoginState.Success
                 } else {
@@ -47,7 +37,7 @@ class AuthViewModel : ViewModel() {
                 }
 
             } catch (e: Exception) {
-                // 4️⃣ 异常处理（真实项目必须有）
+                // 4. Exception handling.
                 loginState.value = LoginState.Error("Something went wrong")
             }
         }
