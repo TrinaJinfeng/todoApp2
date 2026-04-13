@@ -1,5 +1,4 @@
 # todoApp2
-
 # 📱 Android Login & Account List App (MVVM)
 
 ## 🚀 Overview
